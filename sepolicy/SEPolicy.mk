@@ -4,13 +4,13 @@ ifeq ($(TARGET_SEPOLICY_DIR),)
     TARGET_SEPOLICY_DIR := $(TARGET_BOARD_PLATFORM)
 endif
 
-ifeq (,$(filter msm8953 sdm845 sdm710, $(TARGET_BOARD_PLATFORM)))
+ifeq (,$(filter sdm845 sdm710, $(TARGET_BOARD_PLATFORM)))
     BOARD_VENDOR_SEPOLICY_DIRS += \
         $(COMMON_SEPOLICY_PATH)/generic/vendor/common \
         $(COMMON_SEPOLICY_PATH)/qva/vendor/common \
         $(COMMON_SEPOLICY_PATH)/generic/vendor/$(TARGET_SEPOLICY_DIR) \
         $(COMMON_SEPOLICY_PATH)/qva/vendor/$(TARGET_SEPOLICY_DIR)
-else # 845, 8953 and 710
+else # 845 and 710
     BOARD_VENDOR_SEPOLICY_DIRS += \
         $(COMMON_SEPOLICY_PATH)/legacy/vendor/ssg \
         $(COMMON_SEPOLICY_PATH)/legacy/vendor/common \
@@ -22,5 +22,5 @@ else # 845, 8953 and 710
             $(COMMON_SEPOLICY_PATH)/legacy/vendor/test/sysmonapp
     endif
 
-endif # 845, 8953 and 710
+endif # 845 and 710
 
