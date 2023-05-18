@@ -13,3 +13,6 @@ allow vendor_qti_init_shell configfs:{
 
 #Access rcs service
 set_prop(vendor_init, vendor_persist_rcs_qti_prop)
+
+# Allow changing swap settings
+allow vendor_qti_init_shell proc_swaps:file rw_file_perms;
